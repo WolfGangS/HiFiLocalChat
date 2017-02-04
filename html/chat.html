@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/darkly.min.css" rel="stylesheet">
+        <link href="css/chat.css" rel="stylesheet">
+
+        <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/sha256.js"></script>
+        <script type="text/javascript" src="js/jsencrypt.js"></script>
+        <script type="text/javascript" src="js/chat.js"></script>
+        <script src="js/bootstrap.min.js"</script>
+    </head>
+    <body>
+        <ul class="nav nav-tabs" role="tablist">
+            <li style="margin-right:40px;" role="presentation" class="active"><a href="#localchat" aria-controls="localchat" role="tab" data-toggle="tab">Local Chat</a></li>
+        </ul>
+            <div class="tab-content" style="height:100%;padding-bottom:33px;">
+                <div role="tabpanel" class="tab-pane active" id="localchat" style="height:100%;">
+                    <div class="panel-box">
+                        <ul class="left-panel scrollable" id="local-avatarlist">
+                        </ul>
+                        <div class="right-panel">
+                            <div class="chatbox">
+                                <div class="chatbox-messages">
+                                    <ul class="scrollable" id="local-messages"></ul>
+                                </div>
+                                <div class="chatbox-textbar">
+                                    <textarea class="chatbox-textfield" onkeyup="return textAreaKeyPress(event,'local',this);" onkeydown="return textAreaKeyPress(event,'local',this);"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <ul id="contextmenu" class="contextmenu" style="display:none;">
+            <li class="user" data-action="mute">Toggle Mute</li>
+            <li class="user" data-action="im">IM</li>
+        </ul>
+        <div id="loading" class="loading fullscreen">
+            <p>
+                Generating Keys.....
+            </p>
+        </div>
+        <div id="getname" class="getname fullscreen">
+            <div>
+                <h3>Enter a displayname</h3>
+                <input type="text" maxlength="15" id="getnametext" onkeydown="return setName(event,this);"/>
+            </div>
+        </div>
+    </body>
+</html>
